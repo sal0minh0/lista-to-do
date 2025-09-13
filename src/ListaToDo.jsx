@@ -26,7 +26,7 @@ function ListaToDo(){
     }
 
     return (
-    <div className="lista-todo">
+    <div className="lista-to-do">
 
         <h1>Lista To-do em Português</h1>
         
@@ -41,7 +41,7 @@ function ListaToDo(){
         <button 
             className='adicionar-btn' //botao
             onClick={adicionaTarefa}>
-                Add
+                <span class="material-symbols-outlined">add_2</span>
             </button>
         </div> 
 

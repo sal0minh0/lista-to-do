@@ -1,11 +1,74 @@
-* {
-
+.lista-to-do {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  margin: 6.25rem;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+h1 {
+  font-size: 4em;
 }
+
+button {
+  font-size: 1.7em;
+  padding-top: .4rem;
+  border-radius: 20%;
+  border: outset rgba(128, 128, 128, 0.3) 2px;
+
+  color: white;
+  cursor: pointer;
+  transition: background-color .5s ease;
+}
+
+.adicionar-btn {
+  background-color: rgb(12,123,250);
+}
+
+.adicionar-btn:hover {
+  background-color: rgba(12, 123, 250, 0.8);
+}
+
+.deletar-btn {
+  background-color: rgb(244,70,85);
+}
+
+.deletar-btn:hover {
+  background-color: rgba(244, 70, 85, 0.8);
+}
+
+.mover-tarefa-cima-btn {
+  background-color: rgb(65, 168, 79);
+}
+
+.mover-tarefa-cima-btn:hover {
+  background-color: rgb(65, 168, 79, 0.8);
+}
+
+.mover-tarefa-baixo-btn {
+  background-color: rgb(255, 180, 61);
+}
+
+.mover-tarefa-baixo-btn:hover {
+  background-color: rgb(255, 180, 61, 0.8);
+}
+
+input[type="text"]{
+  padding: 3px;
+  padding-top: 7px;
+
+  border: 2px solid rgba(0, 0, 204, .6);
+  border-radius: 5px;
+  color: rgba(0, 0, 204, .85);
+
+  font-style: italic;
+  font-size: 1.6em;
+}
+
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+/*li {
+  /*font-size: 2em; --> TODO Ajeitar essa font-size porque vai quebrar os botoes, */ 
+  /*vê se da para especificar as tarefeas e não aumentar os botões*/ 
+/*}
