@@ -1,18 +1,25 @@
 .lista-to-do {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
   margin: 6.25rem;
 }
 
+body {
+  background: url(assets/bambu.jpg);
+  background-size: cover;
+}
+
 h1 {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 4em;
+  color: white;
+  text-shadow: 2px 2px 10px #000000;
 }
 
 button {
   font-size: 1.7em;
   padding-top: .4rem;
   border-radius: 20%;
-  border: outset rgba(128, 128, 128, 0.3) 2px;
+  border: solid rgba(128, 128, 128, 0.3) 2px;
 
   color: white;
   cursor: pointer;
@@ -20,7 +27,8 @@ button {
 }
 
 .adicionar-btn {
-  background-color: rgb(12,123,250);
+  background-color: rgb(25, 71, 156);
+  border: gray solid 2px;
 }
 
 .adicionar-btn:hover {
@@ -53,22 +61,46 @@ button {
 
 input[type="text"]{
   padding: 3px;
-  padding-top: 7px;
-
-  border: 2px solid rgba(0, 0, 204, .6);
-  border-radius: 5px;
-  color: rgba(0, 0, 204, .85);
+  padding-top: 10px;
+  padding-left: 6px;
+  margin-right: .3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid rgba(128, 128, 128, 0.8);
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.85);
 
   font-style: italic;
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 
 ol {
   list-style-type: none;
   padding: 0;
+  margin-top: 1.8rem;
 }
 
-/*li {
-  /*font-size: 2em; --> TODO Ajeitar essa font-size porque vai quebrar os botoes, */ 
-  /*vê se da para especificar as tarefeas e não aumentar os botões*/ 
-/*}
+li {
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(247, 247, 247, 0.9);
+  border: 3px solid rgba(128, 128, 128, 0.8);
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+}
+
+li .texto{
+  font-size: 1.5em; 
+  font-weight: bold;
+
+  flex: 1; /* é igual à flex-grow: 1; flex-shrink: 1: flex-basis: 0%; */
+} /* esse flex: 1 quer dizer pegue todo o espaço necessário da tela para ocupar o item */
+
+.deletar-btn, 
+.mover-tarefa-baixo-btn, 
+.mover-tarefa-cima-btn {
+  margin-left: 20px;
+}

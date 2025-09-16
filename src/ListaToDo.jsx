@@ -2,27 +2,51 @@ import React, {useState} from 'react';
 
 function ListaToDo(){
 
-    const [tarefas, setTarefas] = useState(['Tarefa_teste1', 'Tarefa_teste2', 'Tarefa_teste3']); //constante para setar as tarefas
+    const [tarefas, setTarefas] = useState([]); {/* Constante para setar o vetor tarefas */}
     const [novaTarefa, setNovaTarefa] = useState("");
 
     function lidaComMudancaDeInput(event){
-        setNovaTarefa(event.target.value); // faz com que o react visivelmente mude o input 
+        setNovaTarefa(event.target.value); {/* Faz com que o react visivelmente mude o input */}
     }
 
-    function adicionaTarefa(){
+    function teclaPressionada(event) { {/* Usuário pode enviar suas tarefas pelo botão "Enter" */}
+            if (event.key === "Enter" && novaTarefa.trim() !== "") {
+                setTarefas(t => [...t, novaTarefa]); {/*...t-> elementos atuais de "tarefas" (copia os elementos atuais do array) e t é o estado anterior de "tarefas"*/}
+                setNovaTarefa(""); {/* string vazia para resetar */}
+            }     
+    };
 
+    function adicionaTarefa(){ {/* Ou adicionar pelo Botão */}
+        if (novaTarefa.trim() !== "") {
+            setTarefas(t => [...t, novaTarefa]); 
+            setNovaTarefa(""); 
+            console.log(tarefas);
+        }
     }
 
     function deletaTarefa(indice){
-
+        const tarefasAtualizadas = tarefas.filter((_, posicao) => posicao !== indice ); {/* "_" é uma convenção para dizer que ignore tal elemento */}
+        setTarefas(tarefasAtualizadas); {/* Colocando o novo vetor agora com as com as tarefas removidas */}
     }
 
     function moveTarefaParaCima(indice){
+        if (indice > 0) { {/* Se a tarefa já não tiver no topo da lista (array)*/}
+            const tarefasAtualizadas = [...tarefas]; {/* Pegamos o vetor tarefas atual */}
+            [tarefasAtualizadas[indice], tarefasAtualizadas[indice - 1]] = {/* Basicamente estamos trocando o indíce atual pelo anterior */}
+            [tarefasAtualizadas[indice - 1], tarefasAtualizadas[indice]];
 
+            setTarefas(tarefasAtualizadas);
+        }
     }
 
     function moveTarefaParaBaixo(indice){
+        if (indice < tarefas.length - 1) { {/* Se a tarefa já não tiver na última posição da lista (array), lembre-se que o lenght é a quantidade de elementos por isso para pegar o ultimo temos que diminuir por 1*/}
+            const tarefasAtualizadas = [...tarefas];
+            [tarefasAtualizadas[indice], tarefasAtualizadas[indice + 1]] = {/* Basicamente estamos trocando o indíce atual pelo posterior */}
+            [tarefasAtualizadas[indice + 1], tarefasAtualizadas[indice]];
 
+            setTarefas(tarefasAtualizadas);
+        }
     }
 
     return (
@@ -31,21 +55,23 @@ function ListaToDo(){
         <h1>Lista To-do em Português</h1>
         
         <div>
-        <input // caixa de input
-            type="text"
-            placeholder="Adicionar tarefa..."
+        <input 
+            type="text" // caixa de input
+            placeholder="Adicionar..."
             value={novaTarefa}
             onChange={lidaComMudancaDeInput}
+            onKeyUp={teclaPressionada}
         />
 
         <button 
-            className='adicionar-btn' //botao
+            className='adicionar-btn' // botao
             onClick={adicionaTarefa}>
                 <span class="material-symbols-outlined">add_2</span>
             </button>
         </div> 
 
             <ol> 
+                {/* Aqui criamos um vetor tarefa com seus indices 1,2,3... */}
                 {tarefas.map((tarefa, indice) => 
                     <li key={indice}> 
 
