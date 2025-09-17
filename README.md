@@ -4,3 +4,17 @@
 
 > [!NOTE]
 > Lista to-do para entender o React e treinar meu conhecimento em desenvolvimento de websites.
+
+## Para funcionar localmente:
+
+- Instale as dependências
+
+```js
+npm install
+```
+
+- E inicie o servidor na url gerada:
+
+```js
+npm run dev
+```
